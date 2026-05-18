@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Гайдлайн фотоворонок — Luxhommè</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --white: #ffffff;
+  --border: #e4e1db;
+  --border-soft: #edeae4;
+  --text: #1e1c1a;
+  --muted: #7a766f;
+  --accent: #72243e;
+  --accent-light: #fdf0f3;
+  --accent-mid: #e8a0b0;
+  --accent-border: #d4778e;
+  --ok: #3b6d11;
+  --ok-bg: #eef6e4;
+  --ok-border: #93c45a;
+  --no: #a32d2d;
+  --no-bg: #fdf0f0;
+  --no-border: #e88888;
+  --warn-bg: #fdf6e3;
+  --warn-border: #e8c45a;
+  --warn: #7a5c00;
+  --purple-bg: #f2f0fb;
+  --purple-border: #b5aee8;
+  --purple: #3c3489;
+  --stone: #f5f3ef;
+  --stone-border: #dedad4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+}
+.s { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+
+/* ── HEADER ── */
+.header {
+  background: var(--accent);
+  color: #fff;
+  padding: 56px 64px 48px;
+}
+.eyebrow {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 14px;
+}
+.header h1 {
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+.header-desc {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  opacity: 0.75;
+  max-width: 560px;
+  line-height: 1.7;
+}
+.pills { margin-top: 26px; display: flex; gap: 9px; flex-wrap: wrap; }
+.pill {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 5px 13px;
+  opacity: 0.85;
+}
+
+/* ── NAV ── */
+.nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 64px;
+  display: flex;
+  overflow-x: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav a {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 14px 15px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav a:hover { color: var(--accent); border-bottom-color: var(--accent-mid); }
+
+/* ── LAYOUT ── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 64px 100px; }
+.section { margin-top: 60px; }
+.section-eyebrow {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 7px;
+}
+.section-title {
+  font-size: 23px;
+  font-weight: normal;
+  color: var(--text);
+  margin-bottom: 5px;
+  letter-spacing: -0.2px;
+}
+.section-desc {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 660px;
+  margin-bottom: 26px;
+  line-height: 1.65;
+}
+.rule { height: 1px; background: var(--border); margin-bottom: 26px; }
+
+/* ── FLOW ── */
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+}
+.flow-step {
+  flex: 1;
+  padding: 20px 18px;
+  border-right: 0.5px solid var(--border);
+  position: relative;
+}
+.flow-step:last-child { border-right: none; }
+.flow-num {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 7px;
+}
+.flow-name {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.flow-desc {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  color: var(--border);
+  font-size: 18px;
+  font-family: sans-serif;
+  background: var(--white);
+  border-right: 0.5px solid var(--border);
+}
+
+/* ── CARDS ── */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 13px; }
+
+.card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 18px;
+}
+.card-label {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.card-title {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.card p, .card ul {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.card ul { padding-left: 15px; }
+.card li { margin-bottom: 3px; }
+
+/* ── RBOXES ── */
+.rbox {
+  border-radius: 10px;
+  padding: 15px 17px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.rbox .rl {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 7px; opacity: 0.75;
+}
+.rbox.ok { background: var(--ok-bg); border: 0.5px solid var(--ok-border); color: var(--ok); }
+.rbox.no { background: var(--no-bg); border: 0.5px solid var(--no-border); color: var(--no); }
+.rbox.note { background: var(--purple-bg); border: 0.5px solid var(--purple-border); color: var(--purple); }
+.rbox.stone { background: var(--stone); border: 0.5px solid var(--stone-border); color: var(--text); }
+.rbox ul { padding-left: 15px; margin-top: 4px; }
+.rbox li { margin-bottom: 4px; }
+
+/* ── TONE GRID ── */
+.tone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+}
+.tone-col { padding: 24px 22px; }
+.tone-col:first-child { border-right: 0.5px solid var(--border); }
+.tone-head {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.tone-head.ok { color: var(--ok); }
+.tone-head.no { color: var(--no); }
+.tone-sub {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 14px 0 8px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+  padding: 3px 11px;
+  border-radius: 20px;
+}
+.tag.ok { background: var(--ok-bg); color: var(--ok); border: 0.5px solid var(--ok-border); }
+.tag.no { background: var(--no-bg); color: var(--no); border: 0.5px solid var(--no-border); }
+.tag.stone { background: var(--stone); color: var(--muted); border: 0.5px solid var(--stone-border); }
+
+/* ── BANNER ── */
+.banner {
+  background: var(--accent);
+  color: white;
+  border-radius: 10px;
+  padding: 20px 22px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.banner strong { font-weight: 600; }
+.banner .sub { margin-top: 8px; opacity: 0.75; font-size: 13px; font-style: italic; }
+
+.banner-stone {
+  background: var(--stone);
+  border: 0.5px solid var(--stone-border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  font-style: italic;
+}
+
+/* ── SLIDES ── */
+.slide-list { display: flex; flex-direction: column; gap: 9px; }
+.slide-item {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.slide-head {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 17px;
+  cursor: pointer;
+  user-select: none;
+}
+.slide-head:hover { background: var(--bg); }
+.snum {
+  width: 28px; height: 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px; font-weight: 600;
+  flex-shrink: 0;
+}
+.stitle {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--text); flex: 1;
+}
+.sbadge {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+.req { background: var(--accent-light); color: var(--accent); border: 0.5px solid var(--accent-border); }
+.opt { background: var(--warn-bg); color: var(--warn); border: 0.5px solid var(--warn-border); }
+.slide-body {
+  display: none;
+  padding: 14px 17px 16px 58px;
+  border-top: 0.5px solid var(--border-soft);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.slide-body.open { display: block; }
+.slide-body strong { color: var(--text); font-weight: 600; }
+.slide-body ul { padding-left: 14px; margin: 6px 0; }
+.slide-body li { margin-bottom: 4px; }
+.quote-block {
+  background: var(--stone);
+  border-left: 3px solid var(--accent-mid);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 13px;
+  margin: 10px 0;
+  font-style: italic;
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* ── CHECKLIST ── */
+.cl-wrap {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.cl-head {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px; font-weight: 600;
+  padding: 14px 20px;
+  color: white;
+  display: flex; align-items: center; gap: 8px;
+}
+.cl-head.sales { background: #2c2c2a; }
+.cl-head.product { background: #185fa5; }
+.cl-head.marketing { background: var(--accent); }
+.cl-head.design { background: #0f6e56; }
+
+.cl-group {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.09em;
+  color: var(--muted);
+  padding: 10px 20px 4px;
+  background: var(--bg);
+  border-top: 0.5px solid var(--border-soft);
+}
+.cl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 10px 20px;
+  border-top: 0.5px solid var(--border-soft);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.cbox {
+  width: 17px; height: 17px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.cl-item .ctag {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  color: var(--muted);
+}
+
+/* ── TYPO TABLE ── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tbl th {
+  background: var(--bg);
+  font-weight: 600; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--muted);
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.tbl td { padding: 10px 14px; border-bottom: 0.5px solid var(--border-soft); vertical-align: top; line-height: 1.5; }
+.tbl tr:last-child td { border-bottom: none; }
+.tno { color: var(--no); }
+.tok { color: var(--ok); }
+
+/* ── VALUES ── */
+.value-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0;
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+  margin-bottom: 10px;
+}
+.value-name {
+  background: var(--accent-light);
+  padding: 18px 16px;
+  border-right: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.value-icon { font-size: 18px; margin-bottom: 5px; }
+.value-label {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.value-body {
+  padding: 16px 18px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.value-body strong { color: var(--text); font-weight: 600; }
+/* ── PROCESS DIAGRAM ── */
+.proc-step {
+  display:flex; align-items:flex-start; gap:10px;
+  background:var(--white); border:0.5px solid var(--border);
+  border-radius:8px; padding:10px 12px; margin-bottom:4px;
+}
+.proc-step.proc-highlight {
+  background:#fff5f7; border-color:var(--accent-border);
+}
+.proc-icon {
+  width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Segoe UI',sans-serif; font-size:11px; font-weight:700;
+  flex-shrink:0; background:var(--bg); border:1px solid var(--border);
+  color:var(--muted);
+}
+.proc-op { background:#e8f4fb; border-color:#90c4e0; color:#1a5a7a; }
+.proc-om { background:#fdf0f3; border-color:var(--accent-border); color:var(--accent); }
+.proc-od { background:#eef6e4; border-color:var(--ok-border); color:var(--ok); }
+.proc-pr { background:#fdf3e3; border-color:#e8c070; color:#7a5000; }
+.proc-ol { background:#f2f0fb; border-color:var(--purple-border); color:var(--purple); }
+.proc-content { flex:1; }
+.proc-name { font-family:'Segoe UI',sans-serif; font-size:13px; font-weight:600; color:var(--text); line-height:1.4; }
+.proc-to { font-family:'Segoe UI',sans-serif; font-size:12px; color:var(--muted); margin-top:2px; }
+.proc-note { font-family:'Segoe UI',sans-serif; font-size:11px; color:var(--muted); font-style:italic; margin-top:2px; }
+.proc-arrow { text-align:center; font-size:16px; color:var(--border); padding:2px 0; line-height:1; }
+.proc-phase-label {
+  font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:0.09em; color:var(--muted);
+  margin:14px 0 8px;
+}
+</style>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="eyebrow s">Luxhommè · Мелкая бытовая техника · Маркетплейсы</div>
+  <h1>Гайдлайн по фотоворонкам</h1>
+  <p class="header-desc s">Единый документ для четырёх этапов: продажи формируют ТЗ, продукт проверяет данные, маркетинг проверяет подачу, дизайн реализует и проверяет оформление.</p>
+  <div class="pills">
+    <span class="pill">WB · OZON · Яндекс.Маркет</span>
+    <span class="pill">Все SKU линейки</span>
+    <span class="pill">Версия 4.2</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav s">
+  <a href="#flow">Процесс</a>
+  <a href="#approval">Согласование правок</a>
+  <a href="#values">Ценности бренда</a>
+  <a href="#tone">Тон и язык</a>
+  <a href="#structure">Структура воронки</a>
+  <a href="#sales">Продажи</a>
+  <a href="#product">Продукт</a>
+  <a href="#marketing">Маркетинг</a>
+  <a href="#design">Дизайн</a>
+  <a href="#rules">Правила текста</a>
+</div>
+
+<div class="page">
+
+<!-- ── ПРОЦЕСС ── -->
+<div class="section" id="flow">
+  <div class="section-eyebrow s">Как устроен процесс</div>
+  <div class="section-title">Процесс разработки инфографики</div>
+  <div class="section-desc s">Полный цикл от поступления нового товара до загрузки карточек. Заказчик и пользователь результата — Отдел продаж (ОП).</div>
+  <div class="rule"></div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;">
+
+    <!-- LEFT: full flow -->
+    <div>
+      <div class="proc-phase-label s">Подготовка</div>
+      <div class="proc-step">
+        <div class="proc-icon">📦</div>
+        <div class="proc-content s">
+          <div class="proc-name">Новый товар приехал</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-ol">ОЛ</div>
+        <div class="proc-content s">
+          <div class="proc-name">Передача образца</div>
+          <div class="proc-to">→ ОП + ОД + ОМ + продукт</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-pr">Пр</div>
+        <div class="proc-content s">
+          <div class="proc-name">Презентация товара</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step proc-highlight">
+        <div class="proc-icon proc-pr">Пр</div>
+        <div class="proc-content s">
+          <div class="proc-name">Передача характеристик, УТП и ХПВ</div>
+          <div class="proc-to">→ ОП</div>
+          <div class="proc-note">ХПВ — Характеристика-Польза-Выгода</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-op">ОП</div>
+        <div class="proc-content s">
+          <div class="proc-name">Сбор референсов карточек</div>
+          <div class="proc-to">ОП собирает примеры сильных карточек конкурентов и лучших кейсов WB/OZON</div>
+          <div class="proc-note">До начала ТЗ — чтобы дизайн знал ориентир</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-op">ОП</div>
+        <div class="proc-content s">
+          <div class="proc-name">Формирование ТЗ</div>
+        </div>
+      </div>
+
+      <div class="proc-phase-label s" style="margin-top:16px;">Разработка ТЗ <span style="font-size:11px;font-weight:400;color:var(--muted);">цикл до принятия решения</span></div>
+      <div style="border:1.5px solid var(--accent-mid);border-radius:10px;padding:12px;background:var(--accent-light);">
+        <div class="proc-step" style="background:white;">
+          <div class="proc-icon proc-op">ОП</div>
+          <div class="proc-content s">
+            <div class="proc-name">Передача ТЗ</div>
+            <div class="proc-to">← ОМ</div>
+          </div>
+        </div>
+        <div class="proc-arrow">↓</div>
+        <div class="proc-step" style="background:white;">
+          <div class="proc-icon proc-om">ОМ</div>
+          <div class="proc-content s">
+            <div class="proc-name">Правки от ОМ</div>
+            <div class="proc-to">← ОП</div>
+          </div>
+        </div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:11px;color:var(--accent);margin-top:6px;font-style:italic;">ТЗ всегда однозначно и недвусмысленно</div>
+      </div>
+      <div class="proc-arrow">↓</div>
+
+      <div class="proc-step proc-highlight">
+        <div class="proc-icon proc-pr">Пр</div>
+        <div class="proc-content s">
+          <div class="proc-name">Продукт проверяет: ХАР + УТП + функции + КИР</div>
+          <div class="proc-to">← Продукт</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon">✓</div>
+        <div class="proc-content s">
+          <div class="proc-name">Финальное ТЗ</div>
+          <div class="proc-note">Согласовано ОП и ОМ</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step" style="background:#fff0f8;border-color:#d4778e;">
+        <div class="proc-icon proc-om">✓✓</div>
+        <div class="proc-content s">
+          <div class="proc-name" style="color:var(--accent);">Взаимная вычитка: ОП читает правки ОМ, ОМ — правки ОП</div>
+          <div class="proc-to">Оба отдела ставят «ОК» в Figma — только тогда ТЗ идёт в ОД</div>
+          <div class="proc-note">Разногласия — диалог в комментариях Figma, не в чате</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-od">ОД</div>
+        <div class="proc-content s">
+          <div class="proc-name">Передача ТЗ в ОД</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-od">ОД</div>
+        <div class="proc-content s">
+          <div class="proc-name">Инфографика разработана</div>
+          <div class="proc-to">→ ОП</div>
+        </div>
+      </div>
+
+      <div class="proc-phase-label s" style="margin-top:16px;">Исполнение ТЗ <span style="font-size:11px;font-weight:400;color:var(--muted);">цикл до принятия решения</span></div>
+      <div style="border:1.5px solid var(--warn-border);border-radius:10px;padding:12px;background:var(--warn-bg);">
+        <div class="proc-step" style="background:white;">
+          <div class="proc-icon proc-op">ОП</div>
+          <div class="proc-content s">
+            <div class="proc-name">Правки от ОП</div>
+            <div class="proc-to">← ОМ</div>
+          </div>
+        </div>
+        <div class="proc-arrow">↓</div>
+        <div class="proc-step" style="background:white;">
+          <div class="proc-icon proc-om">ОМ</div>
+          <div class="proc-content s">
+            <div class="proc-name">Правки от ОМ</div>
+            <div class="proc-to">← ОП</div>
+          </div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-od">ОД</div>
+        <div class="proc-content s"><div class="proc-name">Правки от ОД</div></div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon proc-op">ОП</div>
+        <div class="proc-content s"><div class="proc-name">Передача в ОП</div></div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step">
+        <div class="proc-icon">🔍</div>
+        <div class="proc-content s">
+          <div class="proc-name">Итоговая проверка</div>
+          <div class="proc-note">ОП + ОМ + Продукт</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step" style="background:var(--purple-bg);border-color:var(--purple-border);">
+        <div class="proc-icon proc-ol" style="background:var(--purple-bg);border-color:var(--purple-border);color:var(--purple);">А/Б</div>
+        <div class="proc-content s">
+          <div class="proc-name" style="color:var(--purple);">А/Б тестирование карточек</div>
+          <div class="proc-to" style="color:var(--purple);">Тест вариантов внутри маркетплейса перед финальной выгрузкой</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step" style="background:var(--ok-bg);border-color:var(--ok-border);">
+        <div class="proc-icon" style="background:var(--ok);color:white;">↑</div>
+        <div class="proc-content s">
+          <div class="proc-name" style="color:var(--ok);">Загрузка карточек</div>
+        </div>
+      </div>
+      <div class="proc-arrow">↓</div>
+      <div class="proc-step" style="background:var(--ok-bg);border-color:var(--ok-border);">
+        <div class="proc-icon proc-od">📁</div>
+        <div class="proc-content s">
+          <div class="proc-name" style="color:var(--ok);">ОД сохраняет финальные файлы в Битрикс</div>
+          <div class="proc-to" style="color:var(--ok);opacity:0.8;">Папка с актуальными карточками доступна для скачивания в любой момент</div>
+          <div class="proc-note">Решает проблему «файлы только в TG-чате»</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: legend -->
+    <div style="position:sticky;top:80px;">
+      <div style="background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px;">
+        <div class="card-label s">Обозначения</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font-family:'Segoe UI',sans-serif;font-size:13px;">
+          <div style="display:flex;align-items:center;gap:10px;"><span class="proc-icon proc-op" style="width:32px;height:32px;font-size:11px;">ОП</span><span><strong>ОП</strong> — Отдел продаж</span></div>
+          <div style="display:flex;align-items:center;gap:10px;"><span class="proc-icon proc-om" style="width:32px;height:32px;font-size:11px;">ОМ</span><span><strong>ОМ</strong> — Отдел маркетинга</span></div>
+          <div style="display:flex;align-items:center;gap:10px;"><span class="proc-icon proc-od" style="width:32px;height:32px;font-size:11px;">ОД</span><span><strong>ОД</strong> — Отдел дизайна</span></div>
+          <div style="display:flex;align-items:center;gap:10px;"><span class="proc-icon proc-pr" style="width:32px;height:32px;font-size:11px;">Пр</span><span><strong>Продукт</strong> — Отдел продукта</span></div>
+          <div style="display:flex;align-items:center;gap:10px;"><span class="proc-icon proc-ol" style="width:32px;height:32px;font-size:11px;">ОЛ</span><span><strong>ОЛ</strong> — Офис/логистика</span></div>
+        </div>
+      </div>
+      <div style="background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px;">
+        <div class="card-label s">Термины</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--muted);line-height:1.7;margin-top:8px;">
+          <strong style="color:var(--text);">УТП</strong> — уникальное торговое предложение<br>
+          <strong style="color:var(--text);">ХПВ</strong> — характеристика–польза–выгода<br>
+          <strong style="color:var(--text);">КИР</strong> — карточки инфографики (результат)<br>
+          <strong style="color:var(--text);">ХАР</strong> — характеристики товара
+        </div>
+      </div>
+      <div class="rbox note s">
+        <div class="rl">Важно</div>
+        Каждый этап проходит свой чеклист и только потом передаёт материал. ОМ не правит характеристики — это задача продукта. Продукт не оценивает тон и язык — это задача ОМ.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── СОГЛАСОВАНИЕ ПРАВОК ── -->
+<div class="section" id="approval">
+  <div class="section-eyebrow s">Процесс согласования</div>
+  <div class="section-title">Правки и согласования между отделами</div>
+  <div class="section-desc s">Где работаем, как общаемся и как доводим фотоворонку до финала без потерь и недопониманий.</div>
+  <div class="rule"></div>
+
+  <!-- TWO TOOLS INTRO -->
+  <div class="grid2" style="gap:13px;margin-bottom:22px;">
+    <div class="card" style="border-color:var(--purple-border);background:var(--purple-bg);">
+      <div class="card-label s" style="color:var(--purple);">Рабочий инструмент</div>
+      <div class="card-title s" style="font-size:17px;">Figma</div>
+      <p style="color:var(--purple);font-size:13px;line-height:1.65;">Здесь живёт и дорабатывается фотоворонка. Все комментарии — только здесь. Один фрейм = одна фотоворонка по строчке. Итерации видны под карточкой.</p>
+    </div>
+    <div class="card" style="border-color:#90c4e0;background:#e8f4fb;">
+      <div class="card-label s" style="color:#1a5a7a;">Управление задачами</div>
+      <div class="card-title s" style="font-size:17px;">Битрикс24</div>
+      <p style="color:#1a5a7a;font-size:13px;line-height:1.65;">Здесь отслеживаем статус и финальный результат. Проект «Фотоворонка» → задача по SKU → вложены ТЗ и ссылка в Figma. Правки к ТЗ — в табличке с ТЗ.</p>
+    </div>
+  </div>
+
+  <!-- SETUP STEPS -->
+  <div class="proc-phase-label s">Что нужно сделать прямо сейчас</div>
+  <div class="proc-step proc-highlight" style="margin-bottom:4px;">
+    <div class="proc-icon proc-od">1</div>
+    <div class="proc-content s">
+      <div class="proc-name">Причесать Figma</div>
+      <div class="proc-to">Создать отдельный фрейм под каждую фотоворонку. Убедиться, что структура удобна и понятна всем участникам.</div>
+    </div>
+  </div>
+  <div class="proc-arrow">↓</div>
+  <div class="proc-step proc-highlight" style="margin-bottom:4px;">
+    <div class="proc-icon proc-od">2</div>
+    <div class="proc-content s">
+      <div class="proc-name">Создать мастер-шаблон в Figma</div>
+      <div class="proc-to">Мастер-фрейм с готовой структурой: названия слайдов, плейсхолдеры, типографика, цвета бренда. Используется как стартовая точка для каждой новой фотоворонки.</div>
+    </div>
+  </div>
+  <div class="proc-arrow">↓</div>
+  <div class="proc-step proc-highlight" style="margin-bottom:4px;">
+    <div class="proc-icon" style="background:#e8f4fb;border-color:#90c4e0;color:#1a5a7a;">3</div>
+    <div class="proc-content s">
+      <div class="proc-name">Создать проект «Фотоворонка» в Битриксе</div>
+      <div class="proc-to">Добавить всех участников процесса. Внутри создавать задачи по названиям SKU, прикреплять ТЗ и ссылку в Figma.</div>
+    </div>
+  </div>
+  <div class="proc-arrow">↓</div>
+  <div class="proc-step" style="background:var(--ok-bg);border-color:var(--ok-border);margin-bottom:0;">
+    <div class="proc-icon" style="background:var(--ok);color:white;font-size:14px;">✓</div>
+    <div class="proc-content s">
+      <div class="proc-name" style="color:var(--ok);">Всё готово — начинаем работать по процессу</div>
+      <div class="proc-to" style="color:var(--ok);opacity:0.75;">Комментарии — в Figma. Статус задачи — в Битриксе.</div>
+    </div>
+  </div>
+
+  <!-- FLOW OF REVIEW -->
+  <div class="proc-phase-label s" style="margin-top:24px;">Как идёт итерация правок</div>
+  <div style="background:var(--white);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px;">
+    <div style="padding:14px 18px;border-bottom:0.5px solid var(--border-soft);font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--muted);">
+      Одна фотоворонка идёт <strong style="color:var(--text);">в строчку по карточке</strong>. Под каждой карточкой — комментарии. После правок появляется обновлённая версия рядом. Так накапливается история итераций.
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;">
+      <div style="padding:16px 15px;border-right:0.5px solid var(--border-soft);">
+        <div style="font-family:'Segoe UI',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:8px;">v1</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--text);font-weight:600;">Дизайнер выкладывает фрейм</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--muted);margin-top:4px;">Ссылка в задаче Б24</div>
+      </div>
+      <div style="padding:16px 15px;border-right:0.5px solid var(--border-soft);">
+        <div style="font-family:'Segoe UI',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:8px;">↓</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--text);font-weight:600;">Комментарии в Figma</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--muted);margin-top:4px;">С префиксом отдела</div>
+      </div>
+      <div style="padding:16px 15px;border-right:0.5px solid var(--border-soft);">
+        <div style="font-family:'Segoe UI',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:8px;">↓</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--text);font-weight:600;">Дизайнер правит</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--muted);margin-top:4px;">Ставит ✅ на выполненный комментарий</div>
+      </div>
+      <div style="padding:16px 15px;">
+        <div style="font-family:'Segoe UI',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--ok);margin-bottom:8px;">↓ финал</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--ok);font-weight:600;">Переносим в документ</div>
+        <div style="font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--muted);margin-top:4px;">Закрываем задачу в Б24</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMENT PREFIXES -->
+  <div style="margin-bottom:20px;">
+    <div class="proc-phase-label s">Правила комментариев в Figma</div>
+    <div style="background:var(--white);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;">
+      <div style="padding:13px 18px 10px;border-bottom:0.5px solid var(--border-soft);font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--muted);">Каждый комментарий начинается с префикса отдела. Это обязательно.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+        <div style="padding:14px 17px;border-right:0.5px solid var(--border-soft);border-bottom:0.5px solid var(--border-soft);">
+          <span style="display:inline-block;background:#e8f4fb;border:0.5px solid #90c4e0;color:#1a5a7a;font-family:'Segoe UI',sans-serif;font-size:12px;font-weight:700;padding:2px 9px;border-radius:5px;margin-bottom:6px;">[ОП]</span>
+          <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--text);">Правка от продаж</div>
+        </div>
+        <div style="padding:14px 17px;border-bottom:0.5px solid var(--border-soft);">
+          <span style="display:inline-block;background:var(--accent-light);border:0.5px solid var(--accent-border);color:var(--accent);font-family:'Segoe UI',sans-serif;font-size:12px;font-weight:700;padding:2px 9px;border-radius:5px;margin-bottom:6px;">[ОМ]</span>
+          <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--text);">Маркетинг / бренд</div>
+        </div>
+        <div style="padding:14px 17px;border-right:0.5px solid var(--border-soft);">
+          <span style="display:inline-block;background:var(--ok-bg);border:0.5px solid var(--ok-border);color:var(--ok);font-family:'Segoe UI',sans-serif;font-size:12px;font-weight:700;padding:2px 9px;border-radius:5px;margin-bottom:6px;">[Арт]</span>
+          <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--text);">Арт-директор</div>
+        </div>
+        <div style="padding:14px 17px;">
+          <span style="display:inline-block;background:var(--stone);border:0.5px solid var(--stone-border);color:var(--muted);font-family:'Segoe UI',sans-serif;font-size:12px;font-weight:700;padding:2px 9px;border-radius:5px;margin-bottom:6px;">[Тех]</span>
+          <div style="font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--text);">Техническая правка</div>
+        </div>
+      </div>
+      <div style="padding:12px 17px;background:var(--ok-bg);border-top:0.5px solid var(--ok-border);font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--ok);">
+        После исправления дизайнер ставит реакцию <strong>✅</strong> на комментарий — это сигнал, что правка выполнена.
+      </div>
+    </div>
+  </div>
+
+  <!-- BITRIX STATUSES -->
+  <div style="margin-bottom:20px;">
+    <div class="proc-phase-label s">Статусы задачи в Битрикс24</div>
+    <div class="flow" style="flex-wrap:nowrap;overflow-x:auto;">
+      <div class="flow-step" style="min-width:120px;">
+        <div class="flow-num">01</div>
+        <div class="flow-name">Новое ТЗ</div>
+        <div class="flow-desc">Задача создана, ТЗ прикреплено</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="min-width:130px;">
+        <div class="flow-num">02</div>
+        <div class="flow-name">В работе у дизайнера</div>
+        <div class="flow-desc">Дизайнер взял задачу</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="min-width:120px;">
+        <div class="flow-num">03</div>
+        <div class="flow-name">На согласовании</div>
+        <div class="flow-desc">Ссылка в Figma открыта для комментариев</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="min-width:110px;">
+        <div class="flow-num">04</div>
+        <div class="flow-name">На правках</div>
+        <div class="flow-desc">Дизайнер отрабатывает комментарии</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="min-width:130px;background:var(--purple-bg);border-color:var(--purple-border);">
+        <div class="flow-num" style="color:var(--purple);">05</div>
+        <div class="flow-name" style="color:var(--purple);">А/Б тест</div>
+        <div class="flow-desc">Тестирование вариантов карточек внутри маркетплейса</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="min-width:130px;background:var(--ok-bg);">
+        <div class="flow-num" style="color:var(--ok);">06</div>
+        <div class="flow-name">Готово к выгрузке</div>
+        <div class="flow-desc">Все ✅ поставлены, финал одобрен</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="min-width:130px;background:var(--ok-bg);">
+        <div class="flow-num" style="color:var(--ok);">07</div>
+        <div class="flow-name" style="color:var(--ok);">Выгружено + архив</div>
+        <div class="flow-desc">Карточки загружены. ОД сохраняет финальные файлы в папку Битрикса — доступна для скачивания</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ВЗАИМНАЯ ВЫЧИТКА ОП + ОМ -->
+  <div class="rbox note s" style="margin-bottom:18px;">
+    <div class="rl">⚠️ Важно: взаимная вычитка ОП и ОМ</div>
+    Перед передачей в дизайн <strong>ОП вычитывает правки ОМ, а ОМ — правки ОП</strong>. Цель: не повторяться, при необходимости согласовать разногласия. Несогласованные вопросы фиксируются как диалог в комментариях Figma — не в чате. <strong>ОД получает задачу только после «ОК» с обеих сторон.</strong>
+  </div>
+  <div class="rbox note s" style="margin-bottom:18px;">
+    <div class="rl">Итоги: где что живёт</div>
+    <strong>Процессно</strong> — работаем в Figma &nbsp;·&nbsp; <strong>Финально</strong> — переносим в документ &nbsp;·&nbsp; <strong>Правки к воронке</strong> — комментарии в Figma &nbsp;·&nbsp; <strong>Правки к ТЗ</strong> — в табличке с ТЗ
+  </div>
+
+  <!-- ЗАПРЕЩЕНО -->
+  <div class="proc-phase-label s" style="color:var(--no);">⛔ Запрещено</div>
+  <div style="background:var(--no-bg);border:0.5px solid var(--no-border);border-radius:12px;overflow:hidden;margin-bottom:0;">
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:13px 17px;border-bottom:0.5px solid var(--no-border);font-family:'Segoe UI',sans-serif;font-size:14px;color:var(--no);">
+      <span style="font-size:16px;flex-shrink:0;">✗</span>
+      <div>Писать правки в чат или почту <strong>без дублирования в Figma</strong></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:13px 17px;border-bottom:0.5px solid var(--no-border);font-family:'Segoe UI',sans-serif;font-size:14px;color:var(--no);">
+      <span style="font-size:16px;flex-shrink:0;">✗</span>
+      <div>Менять текст в ТЗ <strong>без фиксации в таблице</strong></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:13px 17px;font-family:'Segoe UI',sans-serif;font-size:14px;color:var(--no);">
+      <span style="font-size:16px;flex-shrink:0;">✗</span>
+      <div>Отправлять на согласование <strong>без прохождения своего чеклиста</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ЦЕННОСТИ БРЕНДА ── -->
+<div class="section" id="values">
+  <div class="section-eyebrow s">Раздел 1</div>
+  <div class="section-title">Ценности бренда Luxhommè</div>
+  <div class="section-desc s">Три ценности — основа для всех решений: какие слова выбирать, какие образы использовать, какие посылы закладывать в карточки.</div>
+  <div class="rule"></div>
+
+  <div class="value-row">
+    <div class="value-name">
+      <div class="value-icon">✦</div>
+      <div class="value-label s">Лёгкость</div>
+    </div>
+    <div class="value-body">
+      <strong>Суть:</strong> освобождение времени и сил для настоящей жизни.<br>
+      В карточках это значит: простое управление, экономия времени, одно устройство вместо нескольких. <strong>Ощущение: жизнь может быть проще, чем кажется.</strong><br><br>
+      <em>Образ для карточки:</em> утро без спешки, кофе готов пока ты собираешься; вечер, когда дела сделаны и можно просто быть.
+    </div>
+  </div>
+
+  <div class="value-row">
+    <div class="value-name">
+      <div class="value-icon">✦</div>
+      <div class="value-label s">Красота</div>
+    </div>
+    <div class="value-body">
+      <strong>Суть:</strong> эстетика повседневной жизни. Техника, которую приятно видеть и приятно трогать.<br>
+      В карточках это значит: лаконичный французский дизайн, техника как часть интерьера, качество материалов. <strong>Приятно смотреть. Приятно трогать. Хочется оставить на виду.</strong><br><br>
+      <em>Образ для карточки:</em> техника на кухне, которую не убирают — она украшает. Дом, в котором каждая деталь на месте.
+    </div>
+  </div>
+
+  <div class="value-row">
+    <div class="value-name">
+      <div class="value-icon">✦</div>
+      <div class="value-label s">Жизнь</div>
+    </div>
+    <div class="value-body">
+      <strong>Суть:</strong> когда быт упрощается, появляется пространство для настоящего — эмоций, общения, момента.<br>
+      В карточках это значит: не про функцию, а про то, что становится возможным. <strong>Не просто покупка — выбор себя.</strong><br><br>
+      <em>Образ для карточки:</em> воскресный завтрак, который растянулся до обеда; вечер с семьёй, когда никуда не нужно торопиться; момент «посвятила время себе».
+    </div>
+  </div>
+
+  <div class="banner-stone s" style="margin-top:4px;">
+    Luxhommè — не про идеальную жизнь, а про больше настоящей. Реальность: дел много, усталость настоящая. Наш ответ: чуть больше лёгкости, чуть больше «я успеваю».
+  </div>
+</div>
+
+<!-- ── ТОН И ЯЗЫК ── -->
+<div class="section" id="tone">
+  <div class="section-eyebrow s">Раздел 2</div>
+  <div class="section-title">Тон и язык бренда</div>
+  <div class="section-desc s">Единый для всех SKU и всех карточек. Маркетинг проверяет, дизайн соблюдает.</div>
+  <div class="rule"></div>
+
+  <div class="banner" style="margin-bottom:18px;">
+    <strong>Главный вопрос для каждого слайда:</strong><br>
+    Карточка поддерживает человека или давит на него?
+    <div class="sub">Если поддерживает → ✅ Если давит, сравнивает или обещает результат → ❌</div>
+  </div>
+
+  <div class="tone-grid">
+    <div class="tone-col">
+      <div class="tone-head ok s">✅ Можно и нужно</div>
+
+      <div class="tone-sub s">Слова и формулировки</div>
+      <div class="tags">
+        <span class="tag ok">бережно</span><span class="tag ok">легко</span><span class="tag ok">удобно</span>
+        <span class="tag ok">забота</span><span class="tag ok">продумано</span><span class="tag ok">без лишних усилий</span>
+        <span class="tag ok">время для себя</span><span class="tag ok">помогает</span><span class="tag ok">поддержка</span>
+        <span class="tag ok">понятно</span><span class="tag ok">спокойно</span><span class="tag ok">под рукой</span>
+        <span class="tag ok">становится легче</span><span class="tag ok">просто работает</span>
+      </div>
+
+      <div class="tone-sub s">Образы</div>
+      <div class="tags">
+        <span class="tag ok">дом и уют</span><span class="tag ok">дневной свет</span>
+        <span class="tag ok">реальный человек</span><span class="tag ok">спокойные эмоции</span>
+        <span class="tag ok">руки в кадре</span><span class="tag ok">бытовые сценарии</span>
+        <span class="tag ok">интерьер</span><span class="tag ok">семья</span>
+      </div>
+
+      <div class="tone-sub s">Приёмы</div>
+      <div class="tags">
+        <span class="tag ok">конкретные цифры</span><span class="tag ok">живой сценарий</span>
+        <span class="tag ok">польза через ощущение</span><span class="tag ok">мягкое сравнение</span>
+      </div>
+
+      <div class="tone-sub s">Характер бренда в тексте</div>
+      <div style="font-family:'Segoe UI',sans-serif; font-size:14px; color:var(--muted); line-height:1.65; margin-top:4px;">
+        Простой и понятный — без технического жаргона.<br>
+        Тёплый — как разговор с человеком, которому доверяешь.<br>
+        Вдохновляющий — про возможности, не про ограничения.
+      </div>
+    </div>
+
+    <div class="tone-col">
+      <div class="tone-head no s">❌ Нельзя — для всех SKU</div>
+
+      <div class="tone-sub s">Слова</div>
+      <div class="tags">
+        <span class="tag no">тело мечты</span><span class="tag no">интенсивный</span>
+        <span class="tag no">максимальный</span><span class="tag no">мощный</span>
+        <span class="tag no">результат за X дней</span><span class="tag no">лучший / топ / №1</span>
+        <span class="tag no">революционный</span><span class="tag no">профессиональный</span>
+        <span class="tag no">заменяет спортзал</span><span class="tag no">надёжность</span>
+        <span class="tag no">сжигание жира</span>
+      </div>
+
+      <div class="tone-sub s">Приёмы</div>
+      <div class="tags">
+        <span class="tag no">агрессивные плашки</span><span class="tag no">крики скидок</span>
+        <span class="tag no">фитнес-давление</span><span class="tag no">обещание быстрого эффекта</span>
+        <span class="tag no">ИИ-текст без редактуры</span>
+      </div>
+
+      <div class="tone-sub s">Сравнения</div>
+      <div class="tags">
+        <span class="tag no">хуже / лучше других</span>
+        <span class="tag no">другие не могут</span>
+        <span class="tag no">конкуренты проигрывают</span>
+      </div>
+
+      <div class="tone-sub s">Отдельно о слове «надёжность»</div>
+      <div style="font-family:'Segoe UI',sans-serif; font-size:14px; color:var(--muted); line-height:1.65; margin-top:4px;">
+        Не говорим «надёжность» прямо — это воспринимается как само собой разумеющееся. Надёжность <em>ощущается</em> через качество материалов, стабильную работу и поддержку — без декларации.
+      </div>
+    </div>
+  </div>
+
+  <div class="rbox note s" style="margin-top:14px;">
+    <div class="rl">Мы не продаём результат</div>
+    Мы продаём ощущение, что человеку станет легче жить. Каждый слайд — про облегчение, а не про давление. Если слайд про «будь лучше» → ❌. Если про «стало легче» → ✅.
+  </div>
+</div>
+
+<!-- ── СТРУКТУРА ВОРОНКИ ── -->
+<div class="section" id="structure">
+  <div class="section-eyebrow s">Раздел 3</div>
+  <div class="section-title">Структура фотоворонки</div>
+  <div class="section-desc s">Единый порядок карточек для всех SKU. Нажмите на карточку, чтобы раскрыть ТЗ по наполнению.</div>
+  <div class="rule"></div>
+
+  <div class="slide-list">
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">1</div>
+        <div class="stitle s">Обложка — Hero-блок</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> мгновенный захват внимания, передача главного УТП и характера бренда.<br><br>
+        <strong>Содержание:</strong>
+        <ul>
+          <li>Название товара в правильном порядке слов («Беспроводной пылесос», «Паровая швабра», «Аэрогриль»)</li>
+          <li>2–3 ключевых УТП — понятным языком, без превосходных степеней, без технических аббревиатур</li>
+          <li>Фото продукта: чистый или интерьерный фон, дневной свет, соответствует реальному внешнему виду</li>
+          <li>Плашка акции / ДР — только при наличии активной акции</li>
+        </ul>
+        <div class="quote-block">На первую карточку выносим основные УТП понятным языком — так, чтобы покупатель понял за 2 секунды, что это и зачем ему нужно. Готовится 2–3 варианта на выбор ОМ.</div>
+        <strong>Чего не делать:</strong>
+        <ul>
+          <li>Не перегружать заголовок — избегать длинных фраз из 7+ слов</li>
+          <li>Не использовать «для всей семьи», «для семей с детьми» как единственное позиционирование — помнить о людях, живущих одних или в паре</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">2</div>
+        <div class="stitle s">Реальные характеристики и УТП</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> дать рациональные аргументы — конкретные, проверенные, без преувеличений.<br><br>
+        <strong>Принцип:</strong> «Реальные характеристики» — не заявленные, а фактические. Доверие через честность.<br><br>
+        <strong>Содержание:</strong>
+        <ul>
+          <li>3–5 иконок или блоков: ключевые параметры с единицами измерения</li>
+          <li>Каждый элемент = значок + значение + единица + краткая польза для человека</li>
+          <li>Главное УТП — одно, самое весомое, крупно: формулировать от пользы, не от спецификации</li>
+        </ul>
+        <div class="quote-block">«До 60 минут без подзарядки» — да. «Аккумулятор 2200 мАч» — нет (только как дополнение к пользе). Все данные — только из базы знаний, проверены Продуктом.</div>
+        <strong>Чего не делать:</strong>
+        <ul>
+          <li>Не писать «лучший», «мощнейший», «революционный»</li>
+          <li>Пустые иконки-заглушки недопустимы — нет данных, значит запрос в Продукт до передачи в дизайн</li>
+          <li>Не смешивать с описанием технологии — это следующая карточка</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">3</div>
+        <div class="stitle s">Видеослайд — ВАУ-эффект от продукта</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> короткое видео (3–7 сек), которое создаёт эмоциональный «вау» — человек видит результат и хочет то же самое.<br><br>
+        <strong>Что снимать — по категориям:</strong>
+        <ul>
+          <li><strong>Уборка (пылесосы, швабры):</strong> «до/после» грязи — видны реальные загрязнения и моментальный результат</li>
+          <li><strong>Кухня (аэрогрили, кофемашины):</strong> вкусная еда быстро — аппетитный результат за секунды, пар, золотистая корочка</li>
+          <li><strong>Уход (виброплатформы, массажёры):</strong> руки / ноги в работе — ощущение заботы о теле, без обещания результата и без похудения</li>
+        </ul>
+        <div class="quote-block">Видео работает на инстинктивном уровне: человек не читает — он чувствует. Чистота, вкус, ощущение — три секунды, которые принимают решение за него.</div>
+        <strong>Требования к видео:</strong>
+        <ul>
+          <li>Длина: 3–7 секунд, без вступления — сразу к сути</li>
+          <li>Без закадрового голоса — только визуал, максимум короткая текстовая плашка</li>
+          <li>Честность: не ускорять процесс монтажом, не показывать нереалистичный результат</li>
+          <li>Для вибро/Care: не показывать резкое похудение, не использовать драматичное «до/после» тела</li>
+        </ul>
+        <strong>Позиция в воронке:</strong> 3–4 место — пока покупатель ещё горячий после обложки и характеристик.
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">4</div>
+        <div class="stitle s">Технология / Ключевая функция</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> объяснить, как работает продукт и почему это облегчает жизнь.<br><br>
+        <strong>По категориям:</strong>
+        <ul>
+          <li><strong>Уборка (пылесосы, швабры):</strong> мощность всасывания, фильтрация, типы поверхностей, температура пара</li>
+          <li><strong>Кухня (кофемашины, аэрогрили):</strong> форматы приготовления — расшифровать каждый (4 в 1 → эспрессо / американо / капучино / латте)</li>
+          <li><strong>Уход (виброплатформы, массажёры):</strong> механизм воздействия без обещания быстрого результата и без давления на похудение</li>
+        </ul>
+        <div class="quote-block">Аббревиатуры всегда расшифровываются. Только механика и польза — без оценочных суждений и превосходных степеней.</div>
+        <strong>Про насадки и компоненты:</strong><br>
+        Избегать просто названий («Турбощётка», «Щётка из нержавеющей стали»). Всегда добавлять функционал: что даёт покупателю? Например: «Турбощётка — вычёсывает шерсть животных из ворса ковра», «Щётка из нержавеющей стали — удаляет стойкие загрязнения без царапин».
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">5</div>
+        <div class="stitle s">Сценарии использования (лайфстайл)</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> показать продукт в реальной жизни, создать эмоциональную связь через узнаваемый момент.<br><br>
+        <strong>Принцип:</strong> не «продукт делает X», а «ты можешь Y, пока продукт делает X».<br><br>
+        <strong>Примеры сценариев по категориям:</strong>
+        <ul>
+          <li><strong>Уборка:</strong> утро без спешки, грязь после прогулки, шерсть на диване, уборка одной рукой</li>
+          <li><strong>Кухня:</strong> кофе готов пока собираешься, воскресный завтрак, блюдо без лишних хлопот</li>
+          <li><strong>Уход:</strong> утренняя рутина, момент тишины, забота о себе без давления на результат</li>
+        </ul>
+        <div class="quote-block">Визуал — близкий и реальный. Не супердорогой интерьер, не постановочные сцены. Реальные бытовые ситуации. Не врать в визуале: если аэрогриль одноуровневый — не показывать 2 курицы сразу; не показывать отдельную комнату для хранения пылесоса.</div>
+        <strong>Люди и животные:</strong>
+        <ul>
+          <li>Уборочная техника — питомцы уместны. Кухонная — нет</li>
+          <li>Люди: руки, бытовой момент, спокойные эмоции — без постановочных лиц</li>
+          <li>Не делать весь контент семьецентричным: «для всей семьи» — не единственный сценарий. Учитывать тех, кто живёт один или вдвоём</li>
+        </ul>
+        <strong>Про контент вибро и Care-продуктов:</strong><br>
+        Мы первые в этой теме — не опираться на конкурентов. Соблюдать честность: не показывать резкое похудение, не обещать быстрый эффект.
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">6</div>
+        <div class="stitle s">Элегантный дизайн — ценность «Красота»</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> раскрыть ценность «Красота» — техника Luxhommè как часть интерьера.<br><br>
+        <strong>Что показывать:</strong>
+        <ul>
+          <li>Продукт в интерьере — на виду, как элемент пространства, а не спрятанный в шкаф</li>
+          <li>Детали: текстура корпуса, форма, пропорции, материал</li>
+          <li>Дневной свет, спокойная атмосфера, «мне здесь хорошо»</li>
+        </ul>
+        <div class="quote-block">Посыл: «Красота — это норма, а не роскошь». Не холодный функционализм — эстетика повседневной жизни. Французский минималистичный дизайн. Картинки и элементы на визуале должны выглядеть живо — не слишком «стоковыми» и постановочными.</div>
+        <strong>Чего не делать:</strong>
+        <ul>
+          <li>Не использовать нереалистично дорогой интерьер — визуал должен быть близким покупателю</li>
+          <li>Не показывать технику как инородный предмет в пространстве</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">7</div>
+        <div class="stitle s">Сравнение фейковых характеристик vs наши реальные</div>
+        <span class="sbadge req s">По ТЗ продаж</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> показать честность бренда через конкретное сравнение того, что рынок заявляет, и что есть на самом деле у нас.<br><br>
+        <strong>Стиль:</strong> парабола. Вдохновение — Remez. Чёткая двухколоночная структура без агрессии.<br><br>
+        <strong>Структура слайда:</strong>
+        <ul>
+          <li>Левая колонка — «Что обычно обещают» (типичные заявления рынка, без называния конкурентов)</li>
+          <li>Правая колонка — «Что на самом деле у нас» (реальные, проверенные данные)</li>
+        </ul>
+        <strong>Примеры противопоставлений:</strong>
+        <ul>
+          <li>«До 45 мин работы» (в идеальных условиях без насадки) → «38 мин с турбощёткой на полной мощности — замерено»</li>
+          <li>«Мощность 2500 Вт» (пиковая, не рабочая) → «1400 Вт — постоянная рабочая мощность»</li>
+          <li>«Тихий мотор» → «47 дБ — проверено в лаборатории»</li>
+        </ul>
+        <div class="quote-block">Говорим не «другие врут» — говорим «вот как мы измеряем и что получается». Покупатель сам делает вывод. Тон — спокойный и уверенный, не агрессивный.</div>
+        <strong>Важно:</strong> все данные нашего продукта — только из базы знаний, проверены Продуктом. Данные рынка — анонимны, не называть бренды.
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">8</div>
+        <div class="stitle s">Сравнение с другими производителями</div>
+        <span class="sbadge opt s">По ТЗ продаж</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> показать преимущество через аргументы и факты — без агрессии и без уничижительных оценок.<br><br>
+        <strong>Структура:</strong> Левая часть — типичные показатели рынка. Правая — наши реальные данные.<br><br>
+        <strong>Язык сравнения — только аргументы, не оценки:</strong>
+        <ul>
+          <li>❌ «Дешёвый динамик» → ✅ «Глухой звук при воспроизведении»</li>
+          <li>❌ «Плохая сборка» → ✅ «Корпус из хрупкого пластика»</li>
+          <li>❌ «Ужасная инструкция» → ✅ «Инструкция только на китайском языке»</li>
+        </ul>
+        <div class="quote-block">Говорим языком фактов и функций. Покупатель сам делает вывод — мы его не подталкиваем оценочными словами.</div>
+        <strong>Что сравнивать (порядок по приоритету):</strong>
+        <ul>
+          <li>Комплектация (насадки, аксессуары)</li>
+          <li>Качество материалов (описательно, не оценочно)</li>
+          <li>Язык инструкции и интерфейса</li>
+          <li>Гарантия и поддержка</li>
+        </ul>
+        <strong>Про «до/после»:</strong> Осмысленно решать, нужны ли страшные «до/после» — в ряде категорий (уход, вибро) они противоречат тону бренда и создают давление.
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">9</div>
+        <div class="stitle s">Комплектация и насадки / компоненты</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> снять вопрос «а что входит?», показать ценность и полноту комплекта.<br><br>
+        <strong>Содержание:</strong>
+        <ul>
+          <li>Товар всегда стоит под цифрой 1 — остальные компоненты нумеруются далее</li>
+          <li>Все компоненты с названием и пояснением назначения — не просто «Турбощётка», а «Турбощётка — для шерсти и ворса»</li>
+          <li>Количество = точное число из базы знаний (проверяет Продукт)</li>
+          <li>Для кофемашин — все форматы капсул/зёрен с подписями</li>
+        </ul>
+        <div class="quote-block">Покупатель должен понимать, зачем ему каждый компонент. Название без функционала — неполная информация.</div>
+        <strong>Оформление:</strong> Разделители (тире / двоеточия) — единообразны для всей линейки. Не перечислять всё в одну строку — если пунктов много, форматировать в список.
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">10</div>
+        <div class="stitle s">Для кого — сценарии и аудитория</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> помочь покупателю узнать себя и свою жизнь в карточке.<br><br>
+        <strong>Формулировки — от жизни человека, не от функции устройства:</strong>
+        <ul>
+          <li>Те, кто ценит порядок без лишних усилий</li>
+          <li>Те, кому важно время на себя</li>
+          <li>Те, кто живёт с питомцем</li>
+          <li>Те, кто любит готовить, но не любит убирать после</li>
+        </ul>
+        <div class="quote-block">Не делать весь контент семьецентричным. «Для всей семьи» — не единственный сценарий и не лучшая формулировка для всех. Думать о тех, кто живёт один, вдвоём, без детей — с уважением к каждому.</div>
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">11</div>
+        <div class="stitle s">Размеры, вес и хранение</div>
+        <span class="sbadge req s">Обязательна</span>
+      </div>
+      <div class="slide-body">
+        <strong>Содержание:</strong>
+        <ul>
+          <li>Вес без упаковки — если лёгкий, это отдельное УТП, выносить крупно</li>
+          <li>Общий вес с упаковкой — подписывать отдельно и явно</li>
+          <li>Размер в полной комплектации (не без насадки)</li>
+          <li>Способ хранения — реалистичный: стоит у стены, в углу, на зарядной станции. Не показывать отдельный шкаф или комнату для хранения</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">12</div>
+        <div class="stitle s">Отсылка на другой товар Luxhommè</div>
+        <span class="sbadge opt s">Тест / По ТЗ</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> органично познакомить покупателя с другим товаром линейки — без навязчивости, через уместный интерьерный контекст.<br><br>
+        <strong>Механика:</strong> В интерьерном кадре на фоне (или рядом) стоит другой товар Luxhommè с артикулом. Не главный герой слайда — фоновый элемент, который создаёт ощущение продуманного пространства.<br><br>
+        <strong>Тестировать варианты сочетаний:</strong>
+        <ul>
+          <li>Клин + Клин (например, пылесос + швабра)</li>
+          <li>Кук + Кук (например, кофемашина + аэрогриль)</li>
+          <li>Кук + Клин (например, аэрогриль + пылесос)</li>
+          <li>Care + Клин (например, виброплатформа + пылесос)</li>
+        </ul>
+        <div class="quote-block">Отсылка должна быть уместной — товары стоят в одном пространстве логично, не вырваны из контекста. Артикул указан мелко, но читаемо.</div>
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">5 / 13</div>
+        <div class="stitle s">Идеальный подарок <span style="font-size:12px;font-weight:400;color:var(--warn);margin-left:6px;">🎁 Подарочный сезон → поднимается на 5 место</span></div>
+        <span class="sbadge req s">Обязательна для всех SKU</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> расширить контекст покупки — не только для себя, но и как подарок.<br><br>
+        <strong>Стандартная позиция:</strong> слайд 13. В подарочный сезон поднимается на <strong>слайд 5</strong>.<br><br>
+        <div style="background:var(--warn-bg);border:0.5px solid var(--warn-border);border-radius:8px;padding:12px 14px;margin:10px 0;">
+          <strong style="color:var(--warn);">🎁 Подарочные сезоны — особое оформление:</strong>
+          <ul style="margin-top:6px;color:var(--warn);">
+            <li><strong>Декабрь:</strong> Новый год / корпоративные подарки</li>
+            <li><strong>Февраль:</strong> 14 февраля (пары) + 23 февраля (мужская аудитория)</li>
+            <li><strong>Март:</strong> 8 марта — слайд перерисовывается под инфоповод</li>
+          </ul>
+        </div>
+        <strong>Варианты слайда по аудитории (исходя из типа продукта и портрета пользователей):</strong>
+        <ul>
+          <li><strong>Подарок маме</strong> — молодой или взрослой, акцент на заботу и лёгкость быта</li>
+          <li><strong>Подарок пожилым родителям</strong> — простота использования, надёжность, ощущение внимания</li>
+          <li><strong>Подарок себе</strong> — самостоятельный выбор, «я это заслуживаю», уход за собой</li>
+          <li><strong>Подарок партнёру</strong> — общее пространство, уют дома</li>
+        </ul>
+        <strong>Правило выбора варианта:</strong> смотреть на самый популярный портрет покупателя по конкретному SKU (данные из аналитики продаж/отзывов) и адаптировать слайд под него.<br><br>
+        Единый стиль карточки для всей линейки. Тёплый, не парадный. Визуал — упаковка или момент вручения, без пафоса.
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">14</div>
+        <div class="stitle s">Упаковка</div>
+        <span class="sbadge opt s">По ТЗ</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> доверие к качеству доставки.<br><br>
+        Фото упаковки снаружи — без царапин и повреждений. Премиальная, продуманная подача.
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">15</div>
+        <div class="stitle s">Гарантия и служба заботы</div>
+        <span class="sbadge req s">Обязательна для всех SKU</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> снять страх «а если сломается?», создать ощущение поддержки.<br><br>
+        <strong>Точная формулировка:</strong>
+        <div class="quote-block">Контакты указаны на упаковке и в руководстве пользователя. Также вы можете писать продавцу для оперативной связи.</div>
+        Ниже крупно: <strong>Мы всегда на связи</strong> — в цвет фирменной плашки, со знаком ♥.<br><br>
+        <strong>Служба заботы</strong> — без кавычек, выделить жирным. Писать «на упаковке», не «на коробке».
+      </div>
+    </div>
+
+    <div class="slide-item">
+      <div class="slide-head" onclick="tog(this)">
+        <div class="snum">16</div>
+        <div class="stitle s">Отзывы покупателей</div>
+        <span class="sbadge opt s">По ТЗ</span>
+      </div>
+      <div class="slide-body">
+        <strong>Цель:</strong> социальное доказательство от живых людей.<br><br>
+        3–5 отзывов с именем и оценкой. Размещать ближе к концу воронки.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="rbox note s" style="margin-top:14px;">
+    <div class="rl">Логика порядка</div>
+    Начало — эмоциональный захват и главные цифры. Середина — сценарии жизни и технологии. Конец — рациональные аргументы (комплектация, сравнение) и доверие (гарантия, отзывы).
+  </div>
+</div>
+
+<!-- ── ЧЕКЛИСТ: ПРОДАЖИ ── -->
+<div class="section" id="sales">
+  <div class="section-eyebrow s">Чеклист 1 из 4</div>
+  <div class="section-title">Отдел продаж — формирование ТЗ</div>
+  <div class="section-desc s">Заполнить перед передачей ТЗ в отдел продукта. ТЗ должно содержать все данные — продукт не должен разыскивать их самостоятельно.</div>
+  <div class="rule"></div>
+
+  <div class="cl-wrap">
+    <div class="cl-head sales s">☑ Продажи → ТЗ готово к передаче в Продукт</div>
+
+    <div class="cl-group s">Описание товара и позиционирование</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Указано полное название товара в правильном порядке слов</div><span class="ctag">Основа</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Прописаны 2–3 главных УТП — конкретных, от пользы для человека, без превосходных степеней</div><span class="ctag">УТП</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Каждый компонент / насадка описаны с функционалом: не просто название, а зачем нужен покупателю</div><span class="ctag">УТП</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Указана целевая аудитория без ограничения «только семьи с детьми» — учтены одиночки и пары</div><span class="ctag">Аудитория</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Прописаны реальные сценарии использования — конкретные бытовые ситуации, близкие покупателю</div><span class="ctag">Аудитория</span></div>
+
+    <div class="cl-group s">Характеристики товара (для всех категорий — заполнить применимые)</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Мощность или производительность устройства с единицей измерения (Вт, кПа, °C — в зависимости от категории)</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Вес устройства без упаковки и с упаковкой — отдельно</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Габариты в полной комплектации (с насадкой / крышкой / держателем)</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Ёмкость: резервуар, объём чаши, ёмкость аккумулятора — применимое</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Время работы / приготовления / зарядки — применимое</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Уровень шума (дБ) — если актуально для категории</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Угол наклона, диапазон регулировок — если есть</div><span class="ctag">Данные</span></div>
+
+    <div class="cl-group s">Комплектация</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Перечислены все компоненты / насадки / аксессуары с точным количеством</div><span class="ctag">Комплект</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Для каждого компонента указано назначение — что он даёт покупателю</div><span class="ctag">Комплект</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Указан способ хранения устройства (реалистичный: у стены, на станции, в углу)</div><span class="ctag">Комплект</span></div>
+
+    <div class="cl-group s">Сравнение и карточка сравнения (если нужна)</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Предоставлены усреднённые данные рынка — без названий конкурентов, только факты</div><span class="ctag">Сравнение</span></div>
+
+    <div class="cl-group s">Слайд-отсылка</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Предложен вариант для слайда-отсылки: какой другой товар Luxhommè логично показать рядом</div><span class="ctag">Допы</span></div>
+  </div>
+</div>
+
+<!-- ── ЧЕКЛИСТ: ПРОДУКТ ── -->
+<div class="section" id="product">
+  <div class="section-eyebrow s">Чеклист 2 из 4</div>
+  <div class="section-title">Отдел продукта — проверка данных и УТП</div>
+  <div class="section-desc s">Сверить ТЗ от продаж с базой знаний. Только после этого ТЗ передаётся в маркетинг.</div>
+  <div class="rule"></div>
+
+  <div class="cl-wrap">
+    <div class="cl-head product s">☑ Продукт → данные проверены, ТЗ корректно</div>
+
+    <div class="cl-group s">Фактчек характеристик</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Все числовые характеристики в ТЗ совпадают с базой знаний — ни одна не придумана и не взята «на глаз»</div><span class="ctag">Фактчек</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Единицы измерения корректны для категории и зафиксированы для всей линейки</div><span class="ctag">Фактчек</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Вес: указан без упаковки и с упаковкой — отдельно, не суммарно</div><span class="ctag">Фактчек</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Габариты: в полной комплектации (с насадкой / крышкой / держателем), не в минимальной</div><span class="ctag">Фактчек</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Количество компонентов / насадок в ТЗ = количеству в базе знаний</div><span class="ctag">Фактчек</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Уровень шума, угол наклона, ёмкость и другие параметры проверены по документации</div><span class="ctag">Фактчек</span></div>
+
+    <div class="cl-group s">Функционал и УТП</div>
+    <div class="cl-item s"><div class="cbox"></div><div>УТП в ТЗ подтверждены реальными характеристиками — не являются преувеличением</div><span class="ctag">УТП</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Функционал каждого компонента / насадки описан корректно с точки зрения технологии</div><span class="ctag">УТП</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Если есть карточка сравнения — данные конкурентов актуальны и фактически верны</div><span class="ctag">УТП</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Все аббревиатуры расшифрованы и расшифровка корректна (4 в 1, EMS, ХПВ и т.д.)</div><span class="ctag">УТП</span></div>
+
+    <div class="cl-group s">Передача</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Все расхождения с базой знаний исправлены в ТЗ или зафиксированы как комментарий для продаж</div><span class="ctag">Процесс</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Сравнены с аналогичными карточками уже проверенных товаров линейки — формулировки функционала согласованы</div><span class="ctag">Процесс</span></div>
+  </div>
+</div>
+
+<!-- ── ЧЕКЛИСТ: МАРКЕТИНГ ── -->
+<div class="section" id="marketing">
+  <div class="section-eyebrow s">Чеклист 3 из 4</div>
+  <div class="section-title">Маркетинг — проверка подачи и тон оф войс</div>
+  <div class="section-desc s">Оценивает смыслы, посылы, тон. Характеристики уже проверены продуктом — не пересматривать.</div>
+  <div class="rule"></div>
+
+  <div class="cl-wrap">
+    <div class="cl-head marketing s">☑ Маркетинг → ТЗ одобрено, передаётся в дизайн</div>
+
+    <div class="cl-group s">Соответствие ценностям бренда</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Каждая карточка проверена: «поддерживает человека или давит на него?»</div><span class="ctag">Бренд</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Посыл — про лёгкость, красоту или жизнь (три ценности). Нет давления на «стань лучше / похудей / исправь себя»</div><span class="ctag">Бренд</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет слов из запрещённого списка: лучший, топ, №1, революционный, профессиональный, надёжность, мощнейший</div><span class="ctag">Бренд</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Для категорий Care / вибро: контент честный и первопроходческий — не копирует конкурентов и не обещает результат</div><span class="ctag">Бренд</span></div>
+
+    <div class="cl-group s">Тон, язык и формулировки</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Текст тёплый и простой — без технического жаргона, как разговор с человеком, которому доверяешь</div><span class="ctag">Тон</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>УТП сформулированы от пользы для человека, не от технической спецификации</div><span class="ctag">Тон</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Карточка сравнения (если есть): язык аргументов и фактов, без уничижительных оценок</div><span class="ctag">Тон</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет двусмысленных формулировок («маневренная головка» и подобное)</div><span class="ctag">Тон</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет ИИ-шаблонных фраз без редактуры («идеальный выбор для вашего дома» и т.п.)</div><span class="ctag">Тон</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Аудитория описана без ограничения «только семьи»: учтены те, кто живёт один или в паре</div><span class="ctag">Тон</span></div>
+
+    <div class="cl-group s">Структура и смыслы</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Порядок карточек соответствует структуре из раздела 3 гайдлайна</div><span class="ctag">Структура</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Для каждой карточки прописан заголовок и основной посыл</div><span class="ctag">Структура</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Сценарии использования — реальные и близкие покупателю, не постановочные</div><span class="ctag">Структура</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Решение о карточке «до/после» принято осознанно с учётом категории и тона бренда</div><span class="ctag">Структура</span></div>
+
+    <div class="cl-group s">Единообразие для линейки</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Единицы измерения зафиксированы и одинаковы для всех SKU линейки</div><span class="ctag">Единообразие</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Формулировки карточки «Служба заботы» и «Гарантия» соответствуют утверждённому тексту (слайд 15)</div><span class="ctag">Единообразие</span></div>
+
+    <div class="cl-group s">Слайд-отсылка и честность</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Согласован вариант для слайда-отсылки: какой другой товар Luxhommè логично показать рядом</div><span class="ctag">Отсылка</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Проверка слайдов на честность: для категорий вибро / Care — решение о «до/после» принято осознанно, не опираясь на конкурентов, первыми делаем честный контент</div><span class="ctag">Честность</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Все формулировки для сравнения — на языке функций, не оценочных суждений (не «дешёвый», а «глухой звук»)</div><span class="ctag">Честность</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Указана целевая аудитория без ограничения «только семьи с детьми» — учтены одиночки и пары</div><span class="ctag">Аудитория</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Прописаны реальные сценарии использования — конкретные бытовые ситуации, близкие покупателю</div><span class="ctag">Аудитория</span></div>
+  </div>
+</div>
+
+<!-- ── ЧЕКЛИСТ: ДИЗАЙН ── -->
+<div class="section" id="design">
+  <div class="section-eyebrow s">Чеклист 4 из 4</div>
+  <div class="section-title">Дизайн — самопроверка перед отправкой</div>
+  <div class="section-desc s">Пройти самостоятельно до отправки макета на согласование. Если хотя бы один пункт не выполнен — не отправлять.</div>
+  <div class="rule"></div>
+
+  <div class="cl-wrap">
+    <div class="cl-head design s">☑ Дизайн → макет готов к согласованию</div>
+
+    <div class="cl-group s">Данные и фактчек</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Все числа на макете совпадают с финальным ТЗ (мощность, вес, количество компонентов, ёмкость, время работы)</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Количество насадок / компонентов на визуале = количеству в ТЗ</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>На слайде с комплектацией основной товар стоит под номером 1</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Единицы измерения одинаковы по всей воронке (дБ, Вт, мА/mAh — как зафиксировано в ТЗ)</div><span class="ctag">Данные</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Все иконки заполнены — нет пустых заглушек</div><span class="ctag">Данные</span></div>
+
+    <div class="cl-group s">Текст и пунктуация</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет точек в конце строк в иконках и плашках</div><span class="ctag">Пунктуация</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет двоеточий внутри иконок характеристик</div><span class="ctag">Пунктуация</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>После тире стоит пробел (— 0,8 л, а не —0,8 л)</div><span class="ctag">Пунктуация</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет висящих предлогов или союзов в конце строки (а, и, в, на, для, с, к)</div><span class="ctag">Типографика</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Заголовок карточки соответствует визуалу по смыслу — нет расхождения между тем, что написано, и тем, что изображено</div><span class="ctag">Смысл</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Заголовки короткие и понятные — избегать длинных перечислений и 7+ слов в строке</div><span class="ctag">Смысл</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет двусмысленных формулировок («маневренная головка» и подобное)</div><span class="ctag">Смысл</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нет повторения одного слова в заголовке и тексте одного блока</div><span class="ctag">Текст</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>«Служба заботы» без кавычек, выделена жирным. «На упаковке», не «на коробке»</div><span class="ctag">Текст</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Стиль разделителей (тире / двоеточия) одинаков для всех SKU линейки</div><span class="ctag">Единообразие</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Проверено сходство с аналогичными карточками уже выпущенных товаров — одинаковые формулировки для одинаковых блоков</div><span class="ctag">Единообразие</span></div>
+
+    <div class="cl-group s">Визуал и честность изображения</div>
+    <div class="cl-item s"><div class="cbox"></div><div>Визуал честный: не показывать больше вместимости, чем есть (2 курицы в одноуровневом аэрогриле, 2 чашки в кофемашине для 1 порции)</div><span class="ctag">Честность</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Хранение показано реалистично: пылесос у стены / в углу — не отдельный шкаф или комната</div><span class="ctag">Честность</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Для Care / вибро: нет изображений резкого похудения или «до/после» без согласования с маркетингом</div><span class="ctag">Честность</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Сценарии близкие и реальные: не супердорогой интерьер, не нереалистичные блюда, не постановочные кадры</div><span class="ctag">Честность</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Текстовые блоки — на однородном фоне, который хорошо контрастирует с текстом</div><span class="ctag">Читаемость</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Нижние плашки не дублируют информацию, уже видную на визуале</div><span class="ctag">Читаемость</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Логотип чёткий на всех слайдах</div><span class="ctag">Визуал</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Все элементы (насадки, иконки) выровнены. Достаточно воздуха между блоками</div><span class="ctag">Визуал</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Картинки и элементы выглядят живо — не слишком «стоковыми» и постановочными</div><span class="ctag">Визуал</span></div>
+    <div class="cl-item s"><div class="cbox"></div><div>Порядок карточек соответствует структуре из раздела 3 гайдлайна</div><span class="ctag">Структура</span></div>
+  </div>
+
+  <div class="banner s" style="margin-top:18px;">
+    <strong>Если что-то не нашли в ТЗ или данные вызывают сомнение</strong> — зафиксировать комментарием в файле и запросить у менеджера продукта. Характеристики не придумывать и не брать с других карточек без проверки.
+  </div>
+</div>
+
+<!-- ── ПРАВИЛА ТЕКСТА ── -->
+<div class="section" id="rules">
+  <div class="section-eyebrow s">Справочник</div>
+  <div class="section-title">Правила оформления текста</div>
+  <div class="section-desc s">Действует для всех SKU. Стиль фиксирует маркетинг в ТЗ, соблюдает дизайн.</div>
+  <div class="rule"></div>
+
+  <table class="tbl">
+    <thead><tr><th>Элемент</th><th class="tno">Неверно</th><th class="tok">Верно</th></tr></thead>
+    <tbody>
+      <tr><td class="s">Точка в конце строки иконки</td><td class="tno s">Мощность 1400 Вт.</td><td class="tok s">Мощность 1400 Вт</td></tr>
+      <tr><td class="s">Двоеточие в иконке</td><td class="tno s">Насадки: 12 шт.</td><td class="tok s">12 насадок</td></tr>
+      <tr><td class="s">Пробел после тире</td><td class="tno s">—0,8 л</td><td class="tok s">— 0,8 л</td></tr>
+      <tr><td class="s">Кавычки у службы</td><td class="tno s">«Служба заботы»</td><td class="tok s">Служба заботы (жирным)</td></tr>
+      <tr><td class="s">Коробка vs упаковка</td><td class="tno s">Контакты на коробке</td><td class="tok s">Контакты на упаковке</td></tr>
+      <tr><td class="s">Единица шума</td><td class="tno s">дб, ДБ, db</td><td class="tok s">дБ</td></tr>
+      <tr><td class="s">Единица аккумулятора</td><td class="tno s">маh, мАЧ — по-разному</td><td class="tok s">мА или mAh — единый выбор для всей линейки</td></tr>
+      <tr><td class="s">Висящий предлог</td><td class="tno s">уборка в<br>любом месте</td><td class="tok s">уборка в любом<br>месте</td></tr>
+      <tr><td class="s">Повтор слова</td><td class="tno s">Глубокая очистка. Пар проникает глубоко</td><td class="tok s">Технология тщательной очистки</td></tr>
+      <tr><td class="s">Аббревиатура без расшифровки</td><td class="tno s">4 в 1</td><td class="tok s">4 в 1: эспрессо / американо / капучино / латте</td></tr>
+      <tr><td class="s">Порядок слов в названии</td><td class="tno s">Пылесос беспроводной</td><td class="tok s">Беспроводной пылесос</td></tr>
+      <tr><td class="s">Буква Ё</td><td class="tno s">Легкий (если читается как «лéгкий»)</td><td class="tok s">Лёгкий — если без Ё читается двусмысленно</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rbox note s" style="margin-top:14px;">
+    <div class="rl">Единообразие для всей линейки</div>
+    Стиль разделителей (тире / двоеточия / ничего), написание единиц (мА или mAh) и использование Ё — фиксируются маркетингом один раз для линейки. Дизайнер применяет зафиксированный стиль ко всем SKU, не принимает эти решения самостоятельно.
+  </div>
+</div>
+
+</div>
+
+<style>
+/* ── INTERACTIVE CHECKLIST ADDITIONS ── */
+.cl-item { cursor: pointer; transition: background 0.12s; }
+.cl-item:hover { background: var(--stone); }
+.cbox {
+  transition: background 0.15s, border-color 0.15s;
+  position: relative;
+  flex-shrink: 0;
+}
+.cbox.checked {
+  background: var(--ok);
+  border-color: var(--ok);
+}
+.cbox.checked::after {
+  content: '';
+  position: absolute;
+  left: 3px; top: 1px;
+  width: 8px; height: 5px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+}
+.cl-success {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--ok-bg);
+  border-top: 1px solid var(--ok-border);
+}
+.cl-success.visible { display: flex; }
+.cl-success-text {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--ok);
+  font-weight: 500;
+  flex: 1;
+}
+.cl-success-emoji { font-size: 22px; }
+.cl-reset {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+  background: none;
+  border: 1px solid var(--ok-border);
+  color: var(--ok);
+  padding: 5px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.cl-reset:hover { background: var(--ok); color: white; }
+.cl-progress {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  margin-left: auto;
+}
+</style>
+
+<script>
+/* Slide accordion */
+function tog(head) {
+  const body = head.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+/* Checklist logic */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.cl-wrap').forEach(wrap => {
+    const items = wrap.querySelectorAll('.cl-item');
+    const head = wrap.querySelector('.cl-head');
+
+    // Inject progress counter into header
+    const prog = document.createElement('span');
+    prog.className = 'cl-progress';
+    head.appendChild(prog);
+
+    // Inject success footer
+    const footer = document.createElement('div');
+    footer.className = 'cl-success';
+    footer.innerHTML = `
+      <span class="cl-success-emoji">🎉</span>
+      <span class="cl-success-text">Супер, ты всё делаешь правильно. Молодец!</span>
+      <button class="cl-reset" onclick="resetChecklist(this)">Сбросить всё</button>
+    `;
+    wrap.appendChild(footer);
+
+    // Click on item → toggle checkbox
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const box = item.querySelector('.cbox');
+        box.classList.toggle('checked');
+        updateChecklist(wrap);
+      });
+    });
+
+    updateChecklist(wrap);
+  });
+});
+
+function updateChecklist(wrap) {
+  const items = wrap.querySelectorAll('.cl-item');
+  const checked = wrap.querySelectorAll('.cbox.checked').length;
+  const total = items.length;
+  const prog = wrap.querySelector('.cl-progress');
+  const footer = wrap.querySelector('.cl-success');
+
+  prog.textContent = `${checked} / ${total}`;
+  if (checked === total && total > 0) {
+    footer.classList.add('visible');
+  } else {
+    footer.classList.remove('visible');
+  }
+}
+
+function resetChecklist(btn) {
+  const wrap = btn.closest('.cl-wrap');
+  wrap.querySelectorAll('.cbox.checked').forEach(b => b.classList.remove('checked'));
+  updateChecklist(wrap);
+}
+
+/* Nav active highlighting */
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav a');
+  const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.style.borderBottomColor = 'transparent');
+        navLinks.forEach(a => a.style.color = '');
+        const active = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+        if (active) {
+          active.style.color = 'var(--accent)';
+          active.style.borderBottomColor = 'var(--accent)';
+        }
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+});
+</script>
+</body>
+</html>
